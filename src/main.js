@@ -146,19 +146,18 @@ function endTour() {
     section.classList.remove('active-section');
   });
 
-  // Retour à l'accueil
   document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
   
   // Réinitialiser l'animation initiale
   new Typed('#typed-output', typedConfig);
 }
 
-// Matrix Rain Effect
+// Matrix Effet
 function setupMatrixRain() {
   const canvas = document.getElementById('matrix-canvas');
   const ctx = canvas.getContext('2d');
 
-  // Set canvas size
+  // canvas size
   function resizeCanvas() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
@@ -166,7 +165,6 @@ function setupMatrixRain() {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  // Characters to use
   const chars = '0123456789ABCDEF';
   const fontSize = 14;
   const columns = canvas.width / fontSize;
@@ -198,7 +196,6 @@ function setupMatrixRain() {
   setInterval(draw, 33);
 }
 
-// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   const typed = new Typed('#typed-output', typedConfig);
   setupMatrixRain();

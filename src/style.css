@@ -79,7 +79,7 @@ body {
   color: var(--terminal-green);
 }
 
-/* Terminal Window */
+/* fenetre Terminal */
 .terminal-window {
   background-color: var(--terminal-dark);
   border: 1px solid var(--terminal-green);
@@ -205,7 +205,7 @@ body {
   border-bottom: none;
 }
 
-/* Glitch Effect */
+/* Glitch Effet */
 .glitch-container {
   position: relative;
   margin: 2rem 0;
@@ -248,7 +248,7 @@ body {
   }
 }
 
-/* Section Styles */
+/* Styles Section */
 .terminal-section {
   margin: 4rem 0;
   padding-top: 4rem;
@@ -293,7 +293,7 @@ body {
   transform: translateX(0);
 }
 
-/* Cursor Animation */
+/* Animation curseur */
 .cursor {
   display: inline-block;
   width: 10px;
@@ -308,7 +308,7 @@ body {
   50% { opacity: 0; }
 }
 
-/* Form Styles */
+/* Styles Form */
 .terminal-form {
   margin: 1rem 0;
 }
