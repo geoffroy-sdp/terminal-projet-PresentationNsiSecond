@@ -1,0 +1,437 @@
+:root {
+  --terminal-green: #00ff00;
+  --terminal-dark: #0a0a0a;
+  --terminal-gray: #333;
+  --terminal-text: #e0e0e0;
+  --glitch-color1: #0ff;
+  --glitch-color2: #f0f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  background-color: var(--terminal-dark);
+  color: var(--terminal-green);
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 0; /* Ajouté pour éviter l'espace en bas */
+}
+
+/* Terminal Navigation */
+.terminal-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(10, 10, 10, 0.9);
+  padding: 1rem;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.terminal-prompt {
+  color: var(--terminal-green);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.terminal-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.terminal-nav a {
+  color: var(--terminal-dark);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--terminal-green);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--terminal-green);
+  display: inline-block;
+  font-weight: bold;
+}
+
+.terminal-nav a:hover {
+  background-color: transparent;
+  color: var(--terminal-green);
+}
+
+/* Terminal Window */
+.terminal-window {
+  background-color: var(--terminal-dark);
+  border: 1px solid var(--terminal-green);
+  border-radius: 5px;
+  margin: 2rem 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.terminal-window.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.terminal-header {
+  background-color: var(--terminal-gray);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff5f56;
+  transition: all 0.3s ease;
+}
+
+.terminal-button:nth-child(2) {
+  background-color: #ffbd2e;
+}
+
+.terminal-button:nth-child(3) {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  margin-left: 1rem;
+  color: var(--terminal-text);
+  font-size: 0.9rem;
+}
+
+.terminal-content {
+  padding: 1rem;
+  min-height: 200px;
+}
+
+/* Terminal Box Styles */
+.terminal-box {
+  margin: 1rem 0;
+  padding: 1rem;
+  position: relative;
+}
+
+.terminal-box-title {
+  background-color: var(--terminal-dark);
+  border: 2px solid var(--terminal-green);
+  padding: 1rem 2rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+}
+
+.terminal-box-title::before,
+.terminal-box-title::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--terminal-green);
+}
+
+.terminal-box-title::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.terminal-box-title::after {
+  top: -2px;
+  right: -2px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.terminal-box-content {
+  border: 2px solid var(--terminal-green);
+  padding: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.terminal-box-content::before,
+.terminal-box-content::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--terminal-green);
+}
+
+.terminal-box-content::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.terminal-box-content::after {
+  top: -2px;
+  right: -2px;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* Glitch Effect */
+.glitch-container {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.glitch {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.05em 0 0 var(--glitch-color1),
+              -0.05em -0.025em 0 var(--glitch-color2);
+  animation: glitch 725ms infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 var(--glitch-color1),
+                -0.05em -0.025em 0 var(--glitch-color2);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 var(--glitch-color1),
+                0.025em 0.025em 0 var(--glitch-color2);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 var(--glitch-color1),
+                0.025em 0.025em 0 var(--glitch-color2);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 var(--glitch-color1),
+                0.05em 0 0 var(--glitch-color2);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 var(--glitch-color1),
+                0.05em 0 0 var(--glitch-color2);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 var(--glitch-color1),
+                -0.025em -0.025em 0 var(--glitch-color2);
+  }
+}
+
+/* Section Styles */
+.terminal-section {
+  margin: 4rem 0;
+  padding-top: 4rem;
+  transition: all 0.5s ease;
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+.terminal-section.active-section {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.terminal-section.active-section .terminal-window {
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+  border-color: var(--terminal-green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+  }
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+
+.active-section .section-title {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Cursor Animation */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  background-color: var(--terminal-green);
+  margin-left: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Form Styles */
+.terminal-form {
+  margin: 1rem 0;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+.form-group:nth-child(1) { --i: 1; }
+.form-group:nth-child(2) { --i: 2; }
+.form-group:nth-child(3) { --i: 3; }
+
+.form-group label {
+  display: block;
+  color: var(--terminal-green);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--terminal-gray);
+  border: 1px solid var(--terminal-green);
+  color: var(--terminal-text);
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--glitch-color1);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button.terminal-button {
+  background-color: transparent;
+  color: var(--terminal-green);
+  border: 1px solid var(--terminal-green);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button.terminal-button:hover {
+  background-color: var(--terminal-green);
+  color: var(--terminal-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #app {
+    padding: 1rem;
+  }
+
+  .terminal-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .glitch {
+    font-size: 2rem;
+  }
+
+  .terminal-window {
+    margin: 1rem 0;
+  }
+
+  .terminal-section.active-section {
+    transform: scale(1.01);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+}
+
+/* Footer Styles */
+.terminal-footer {
+  position: relative;
+  min-height: 300px;
+  margin-top: 4rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--terminal-dark);
+}
+
+#matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  color: var(--terminal-green);
+  text-align: center;
+  background: rgba(10, 10, 10, 0.8);
+  width: 100%;
+}
+
+.footer-content .terminal-box {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-content .terminal-box-content {
+  text-align: left;
+}
